@@ -5,7 +5,5 @@ defmodule Hannah.TextParser do
     |> String.split(~r/(\?|\!|\.)\s*/, trim: true)
   end
 
-  def words(sentence) do
-    String.split(sentence, ~r/\s|,/, trim: true)
-  end
+  def words(sentence), do: String.split(sentence, ~r/\s|,/, trim: true)
 end
