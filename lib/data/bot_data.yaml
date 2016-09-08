@@ -1,11 +1,26 @@
 ---
 presubs:
-- - dont
-- don't
-- - youre
-- you're
-- - love
-- like
+  -
+    - dont
+    - don't
+  -
+    - youre
+    - you're
+  -
+    - love
+    - like
+  -
+    - yep
+    - yes
+  -
+    - yeah
+    - yes
+  -
+    - nope
+    - no
+  -
+    - nup
+    - no
 responses:
   i like *:
   - Why do you like *?
