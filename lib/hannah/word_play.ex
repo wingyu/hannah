@@ -27,9 +27,11 @@ defmodule Hannah.WordPlay do
 
   def most_relevant_sentence(sentences, hot_words) do
     Enum.sort(sentences,
-      &(relevance_score(&1, hot_words) > relevance_score(&2, hot_words)))
+    &(relevance_score(&1, hot_words) > relevance_score(&2, hot_words)))
     |> List.first
   end
+
+  #Private methods
 
   defp relevance_score(sentence, hot_words) do
     Hannah.TextParser.words(sentence)
@@ -40,7 +42,3 @@ defmodule Hannah.WordPlay do
     String.contains?(sentence, hot_words)
   end
 end
-
-
-
-

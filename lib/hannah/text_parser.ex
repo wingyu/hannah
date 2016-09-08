@@ -1,7 +1,6 @@
 defmodule Hannah.TextParser do
   def sentences(text) do
-    String.downcase(text)
-    |> String.replace(~r/\n/, " ")
+    String.replace(text, ~r/\n/, " ")
     |> String.split(~r/(\?|\!|\.)\s*/, trim: true)
   end
 

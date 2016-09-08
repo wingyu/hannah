@@ -23,20 +23,22 @@ presubs:
     - no
 responses:
   i like *:
-  - Why do you like *?
-  - Wow! I like * too!
+    - Why do you like *?
+    - Wow! I like * too!
   default:
-  - I don't understand.
-  - What?
-  - Huh?
+    - I don't understand.
+    - What?
+    - Huh?
+    - cool, story bro
   hello:
-  - How's it going?
-  - How do you do?
+    - How's it going?
+    - How do you do?
   greeting:
-  - Hi! Want to chat?
+    - Hi! Want to chat?
   farewell:
-  - Good bye!
-  - See ya!
+    - Good bye!
+    - See ya!
+    - Twas' great chatting with you
 
 
 

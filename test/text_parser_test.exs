@@ -7,14 +7,14 @@ defmodule TextParserTest do
   ]
 
   #sentences
-  test "breaks up text into a list of downcased sentences" do
-    assert sentences("Winter is coming! When, Stark?") == [
+  test "breaks up text into a list of sentences" do
+    assert sentences("winter is coming! when, stark?") == [
       "winter is coming",
       "when, stark"
     ]
 
 
-    assert sentences("A Lannister always\npays his debts") == [
+    assert sentences("a lannister always\npays his debts") == [
       "a lannister always pays his debts"
     ]
   end
@@ -29,8 +29,3 @@ defmodule TextParserTest do
     ]
   end
 end
-
-
-
-
-
