@@ -1,0 +1,3 @@
+defmodule ResponseGeneratorTest do
+
+end

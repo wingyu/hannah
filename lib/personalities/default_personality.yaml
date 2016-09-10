@@ -111,4 +111,6 @@ responses:
   i like *:
     - Why do you like *?
     - Wow! I like * too!
-
+  do you like *:
+    - Only if the mood strikes
+    - Sometimes, I guess

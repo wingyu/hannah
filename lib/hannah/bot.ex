@@ -4,14 +4,17 @@ defmodule Hannah.Bot do
     |> preprocess(personality)
     |> break_into_sentences
     |> most_relevant_sentence(personality)
-    |> possible_responses(personality)
-    |> Enum.random
+    |> respond(personality)
   end
 
   def greeting(personality), do: Hannah.ResponseGenerator.greeting(personality)
   def farewell(personality), do: Hannah.ResponseGenerator.farewell(personality)
 
   #PRIVATE#######################
+
+  defp respond(sentence, personality) do
+    Hannah.ResponseGenerator.call(sentence, personality)
+  end
 
   defp preprocess(input, personality) do
     #TODO Make more efficient--- change YAML personality structrue
@@ -34,9 +37,5 @@ defmodule Hannah.Bot do
                   |> Enum.filter(&(!Regex.match?(~r/\s/, &1)))
 
     Hannah.WordPlay.most_relevant_sentence(sentences, hot_words)
-  end
-
-  defp possible_responses(sentence, personality) do
-    Hannah.ResponseGenerator.possible_responses(sentence, personality)
   end
 end
