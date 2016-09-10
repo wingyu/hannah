@@ -1,5 +1,5 @@
-defmodule Hannah.DataLoader do
-  def call(path \\ "lib/data/bot_data.yaml") do
+defmodule Hannah.PersonalityLoader do
+  def call(path \\ "lib/personalities/default_personality.yaml") do
     yaml = File.cwd!
             |> Path.join(path)
             |> YamlElixir.read_from_file

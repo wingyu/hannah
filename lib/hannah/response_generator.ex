@@ -1,24 +1,24 @@
 defmodule Hannah.ResponseGenerator do
 
-  def possible_responses(sentence, data) do
-    Map.keys(data["responses"])
-    |> add_non_generic_responses(sentence,data)
-    |> add_confused_responses(data)
+  def possible_responses(sentence, personality) do
+    Map.keys(personality["responses"])
+    |> add_non_generic_responses(sentence, personality)
+    |> add_confused_responses(personality)
     |> List.flatten
   end
 
-  def greeting(data) do
-    random_default_message("greeting", data)
+  def greeting(personality) do
+    random_default_message("greeting", personality)
   end
 
-  def farewell(data) do
-    random_default_message("farewell", data)
+  def farewell(personality) do
+    random_default_message("farewell", personality)
   end
 
   #PRIVATE#######################
 
-  defp random_default_message(key, data) do
-    responses = data["default"][key]
+  defp random_default_message(key, personality) do
+    responses = personality["default"][key]
 
     random_index = length(responses)
                     |> :rand.uniform
@@ -27,11 +27,11 @@ defmodule Hannah.ResponseGenerator do
   end
 
 
-  defp add_non_generic_responses([], _sentence,_data), do: []
-  defp add_non_generic_responses(keys, sentence, data) do
+  defp add_non_generic_responses([], _sentence,_personality), do: []
+  defp add_non_generic_responses(keys, sentence, personality) do
     Enum.reduce(keys, [], fn(pattern, total_responses) ->
-      #TODO use regex to wrap cleaned_pattern in #contains?
-      responses = data["responses"][pattern]
+      #TODO use regex to wrap cleaned_pattern in #contains? and CLEANUP
+      responses = personality["responses"][pattern]
       cleaned_pattern = String.replace(pattern, "*", "")
 
       if String.contains?(sentence, cleaned_pattern) do
@@ -50,6 +50,6 @@ defmodule Hannah.ResponseGenerator do
     end)
   end
 
-  defp add_confused_responses([], data), do: data["default"]["confused"]
-  defp add_confused_responses(responses, _data), do: responses
+  defp add_confused_responses([], personality), do: personality["default"]["confused"]
+  defp add_confused_responses(responses, _personality), do: responses
 end

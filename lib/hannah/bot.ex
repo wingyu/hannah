@@ -1,21 +1,21 @@
 defmodule Hannah.Bot do
-  def response_to(input, data) do
+  def response_to(input, personality) do
     String.downcase(input)
-    |> preprocess(data)
+    |> preprocess(personality)
     |> break_into_sentences
-    |> most_relevant_sentence(data)
-    |> possible_responses(data)
+    |> most_relevant_sentence(personality)
+    |> possible_responses(personality)
     |> Enum.random
   end
 
-  def greeting(data), do: Hannah.ResponseGenerator.greeting(data)
-  def farewell(data), do: Hannah.ResponseGenerator.farewell(data)
+  def greeting(personality), do: Hannah.ResponseGenerator.greeting(personality)
+  def farewell(personality), do: Hannah.ResponseGenerator.farewell(personality)
 
   #PRIVATE#######################
 
-  defp preprocess(input, data) do
-    #TODO Make more efficient--- change YAML data structrue
-    perform_substitutions(input, data["presubs"])
+  defp preprocess(input, personality) do
+    #TODO Make more efficient--- change YAML personality structrue
+    perform_substitutions(input, personality["presubs"])
   end
 
   defp perform_substitutions(input, []), do: input
@@ -26,17 +26,17 @@ defmodule Hannah.Bot do
 
   defp break_into_sentences(input), do: Hannah.TextParser.sentences(input)
 
-  defp most_relevant_sentence(sentences, data) do
+  defp most_relevant_sentence(sentences, personality) do
     #TODO include phrases like "I hate/ I like into hot_words...currently
     #doesn't work since sentences are broken into words in WordPlay
     #-Don't break into words first?
-    hot_words = Map.keys(data["responses"])
+    hot_words = Map.keys(personality["responses"])
                   |> Enum.filter(&(!Regex.match?(~r/\s/, &1)))
 
     Hannah.WordPlay.most_relevant_sentence(sentences, hot_words)
   end
 
-  defp possible_responses(sentence, data) do
-    Hannah.ResponseGenerator.possible_responses(sentence, data)
+  defp possible_responses(sentence, personality) do
+    Hannah.ResponseGenerator.possible_responses(sentence, personality)
   end
 end
