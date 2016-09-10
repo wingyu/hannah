@@ -6,7 +6,7 @@ defmodule Hannah.PersonalityLoader do
 
     {:ok, yaml}
   catch
-    {_, error} -> {:error, error}
+    {_, reason} -> {:error, reason}
   end
 end
 

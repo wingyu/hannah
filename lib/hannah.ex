@@ -4,17 +4,22 @@ defmodule Hannah do
   # See http://elixir-lang.org/docs/stable/elixir/Application.html
   # for more information on OTP Applications
   def start(_type, _args) do
-    import Supervisor.Spec, warn: false
+    case Hannah.PersonalityLoader.call do
+      {:ok, personality} ->
+        import Supervisor.Spec, warn: false
 
-    # Define workers and child supervisors to be supervised
-    children = [
-      # Starts a worker by calling: Hannah.Worker.start_link(arg1, arg2, arg3)
-      # worker(Hannah.Worker, [arg1, arg2, arg3]),
-    ]
+        # Define workers and child supervisors to be supervised
+        children = [
+          # Starts a worker by calling: Hannah.Worker.start_link(arg1, arg2, arg3)
+          worker(Hannah.Server, [personality]),
+        ]
 
-    # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
-    # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: Hannah.Supervisor]
-    Supervisor.start_link(children, opts)
+        # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
+        # for other strategies and supported options
+        opts = [strategy: :one_for_one, name: Hannah.Supervisor]
+        Supervisor.start_link(children, opts)
+      {:error, reason} ->
+        IO.puts "YAML Error: #{reason}"
+    end
   end
 end
