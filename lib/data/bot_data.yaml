@@ -1,25 +1,33 @@
 ---
 presubs:
+#TODO Change presubs data structure to be more efficient
+#--current form taken from a Ruby tutorial
   -
-    - dont
+    - "dont "
     - don't
   -
-    - youre
+    - "youre "
     - you're
   -
-    - love
+    - "love "
     - like
   -
-    - yep
+    - "hi "
+    - hello
+  -
+    - "hey "
+    - hello
+  -
+    - "yep "
     - yes
   -
-    - yeah
+    - "yeah "
     - yes
   -
-    - nope
+    - "nope "
     - no
   -
-    - nup
+    - "nup "
     - no
 default:
   greeting:

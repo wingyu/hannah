@@ -26,6 +26,8 @@ defmodule Hannah.WordPlay do
   end
 
   def most_relevant_sentence(sentences, hot_words) do
+    #finds sentence with most hot_words else picks last sentence
+    #TODO pick first sentence if no hot_words instead of last?
     Enum.sort(sentences,
     &(relevance_score(&1, hot_words) > relevance_score(&2, hot_words)))
     |> List.first
