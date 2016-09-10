@@ -21,21 +21,23 @@ presubs:
   -
     - nup
     - no
-responses:
-  i like *:
-    - Why do you like *?
-    - Wow! I like * too!
-  default:
-    - I don't understand.
-    - What?
-    - Huh?
-    - cool, story bro
-  hello:
-    - How's it going?
-    - How do you do?
+default:
   greeting:
     - Hi! Want to chat?
   farewell:
     - Good bye!
     - See ya!
     - Twas' great chatting with you
+  confused:
+    - I don't understand.
+    - What?
+    - Huh?
+    - cool, story bro
+responses:
+  i like *:
+    - Why do you like *?
+    - Wow! I like * too!
+  hello:
+    - How's it going?
+    - How do you do?
+

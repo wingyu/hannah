@@ -4,22 +4,23 @@ defmodule Hannah.Bot do
     |> preprocess(data)
     |> break_into_sentences
     |> most_relevant_sentence(data)
+    #|> possible_responses(data)
   end
 
   def greeting(data) do
-    random_response("greeting", data)
+    random_default_message("greeting", data)
   end
 
   def farewell(data) do
-    random_response("farewell", data)
+    random_default_message("farewell", data)
   end
 
   #Private methods
 
   defp break_into_sentences(input), do: Hannah.TextParser.sentences(input)
 
-  defp random_response(key, data) do
-    responses = data["responses"][key]
+  defp random_default_message(key, data) do
+    responses = data["default"][key]
 
     random_index = length(responses)
                     |> :rand.uniform
@@ -41,10 +42,14 @@ defmodule Hannah.Bot do
 
   defp most_relevant_sentence(sentences, data) do
     hot_words = Map.keys(data["responses"])
-                  |> Enum.filter(fn x ->
-                    !Regex.match?(~r/\b(default|greeting|farewell)\b|\s/, x)
-                  end)
+                  |> Enum.filter(&(!Regex.match?(~r/\s/, &1)))
 
     Hannah.WordPlay.most_relevant_sentence(sentences, hot_words)
+  end
+
+  defp possible_responses(sentence, data) do
+    #get keys
+    #patterns = Map.keys(data["responses"])
+
   end
 end
