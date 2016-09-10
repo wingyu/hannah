@@ -13,7 +13,7 @@ defmodule Hannah.Bot do
   #PRIVATE#######################
 
   defp respond(sentence, personality) do
-    Hannah.ResponseGenerator.call(sentence, personality)
+    Hannah.ResponseGenerator.respond(sentence, personality)
   end
 
   defp preprocess(input, personality) do

@@ -1,9 +1,14 @@
 defmodule Hannah.ResponseGenerator do
 
-  def call(sentence, personality) do
+  def respond(sentence, personality) do
     possible_responses(sentence, personality)
     |> Enum.random
   end
+
+  def greeting(personality), do: random_default_message("greeting", personality)
+  def farewell(personality), do: random_default_message("farewell", personality)
+
+  #PRIVATE#######################
 
   defp possible_responses(sentence, personality) do
     Map.keys(personality["responses"])
@@ -11,16 +16,6 @@ defmodule Hannah.ResponseGenerator do
     |> add_confused_responses(personality)
     |> List.flatten
   end
-
-  def greeting(personality) do
-    random_default_message("greeting", personality)
-  end
-
-  def farewell(personality) do
-    random_default_message("farewell", personality)
-  end
-
-  #PRIVATE#######################
 
   defp random_default_message(key, personality) do
     responses = personality["default"][key]

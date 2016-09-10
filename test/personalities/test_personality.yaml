@@ -1,37 +1,26 @@
 ---
 presubs:
-  - - dont
-  - don't
-  - - youre
-  - you're
-  - - love
-  - like
-  - - yep
-  - yes
-  - - yeah
-  - yes
-  - - nope
-  - no
-  - - nup
-  - no
+  -
+    - "dont "
+    - don't
+  -
+    - don't
+    - do not
+default:
+  greeting:
+    - Hi! Want to chat?
+    - What's on your mind today?
+  farewell:
+    - Good bye!
+    - See ya!
+  confused:
+    - What?
+    - Huh?
 responses:
   i like *:
-  - Why do you like *?
-  - Wow! I like * too!
-  default:
-  - I don't understand.
-  - What?
-  - Huh?
+    - Why do you like *?
   hello:
-  - How's it going?
-  - How do you do?
-  greeting:
-  - Hi! Want to chat?
-  farewell:
-  - Good bye!
-  - See ya!
-
-
-
-
-
+    - How's it going?
+    - How do you do?
+  sorry:
+    - There's no need to apologize
