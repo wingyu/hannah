@@ -1,6 +1,9 @@
 # Hannah
 
-**TODO: Add description**
+**TODO:**
+* Convert to Slack Bot
+* Update Data structure of Personalities
+* Improve Speech processing (eg, best sentence choosing + pronoun switching)
 
 ## Installation
 
