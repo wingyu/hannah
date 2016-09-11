@@ -27,8 +27,10 @@ defmodule Hannah.Bot do
     |> perform_substitutions(rest_of_presubs)
   end
 
-  defp break_into_sentences(input), do: Hannah.TextParser.sentences(input)
-
+  defp break_into_sentences(input) do
+    IO.puts input
+    Hannah.TextParser.sentences(input)
+  end
   defp most_relevant_sentence(sentences, personality) do
     #TODO include phrases like "I hate/ I like into hot_words...currently
     #doesn't work since sentences are broken into words in WordPlay

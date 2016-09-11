@@ -3,49 +3,49 @@ presubs:
 #TODO Change presubs data structure to be more efficient
 #--current form taken from a Ruby tutorial
   -
-    - "dont "
+    - dont
     - don't
   -
     - don't
     - do not
   -
-    - " youre "
+    - youre
     - you're
   -
-    - "love "
+    - love
     - like
   -
-    - "want "
+    - want
     - like
   -
-    - "hi "
+    - hi
     - hello
   -
-    - "hey "
+    - hey
     - hello
   -
-    - "yep "
+    - yep
     - yes
   -
-    - "yeah "
+    - yeah
     - yes
   -
-    - "nope "
+    - nope
     - no
   -
-    - "nup "
+    - nup
     - no
   -
-    - "apologize"
+    - apologize
     - are sorry
   -
-    - "dislike"
+    - dislike
     - hate
   -
-    - "despise"
+    - despise
     - hate
   -
-    - " mom "
+    - mom
     - family
 default:
   greeting:
