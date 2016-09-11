@@ -1,4 +1,5 @@
 # Hannah
+A rudimentary chat bot written in Elixir. THis was based and adapted off of a tutorial in the book Beginning Ruby by Peter Cooper
 
 **TODO:**
 * Convert to Slack Bot
