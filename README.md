@@ -2,9 +2,15 @@
 A rudimentary chat bot written in Elixir. THis was based and adapted off of a tutorial in the book Beginning Ruby by Peter Cooper
 
 **TODO:**
-* Convert to Slack Bot
+* Convert to Slack Bot/Make an executable
 * Update Data structure of Personalities
 * Improve Speech processing (eg, best sentence choosing + pronoun switching)
+
+## Usage
+
+Run `iex -S mix`
+
+Converse with Hannah by via the Server module, eg.(`Hannah.Server.converse("Hello!")`) ...This isn't great so will make the interface at a later date
 
 ## Example
 Hi. What would you like to talk about?
