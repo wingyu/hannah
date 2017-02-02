@@ -13,7 +13,7 @@ Run `iex -S mix`
 Converse with Hannah by via the Server module, eg.(`Hannah.Server.converse("Hello!")`) ...This isn't great so will improve the interface at a later date
 
 ## Example
-Hi. What would you like to talk about?
+>> Hi. What would you like to talk about?  (Hannah)
 
 I don't know
 
